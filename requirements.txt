@@ -8,3 +8,5 @@ Werkzeug==1.0.1
 numpy>=1.14.3
 pandas>=0.23.0
 scikit-learn>=0.19.1
+jsonschema>=2.6.0
+pickleshare>=0.7.4
