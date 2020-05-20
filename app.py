@@ -50,7 +50,7 @@ def predict():
 	prediction = model.predict(final_features)
 	output = prediction[0]
 	return render_template('result.html', prediction_text='Rp {}'.format(output))
-@app.route('/predict_api',methods=['POST'])
+@app.route('/predict_api',methods=['GET'])
 def predict_api():
 	'''
 	For direct API calls trought request
