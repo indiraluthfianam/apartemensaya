@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Cari Harga Apartemen</title>
+  
+    <!-- Bootstrap core CSS -->
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  
+    <!-- Custom styles for this template -->
+  <link href="../static/css/clean-blog.min.css" rel="stylesheet">
+<script>
+function tampilkan(){
+  var jenis_unit=document.getElementById("form1").Unit.value;
+  if (jenis_unit=="2")
+    {
+        document.getElementById("tampil").innerHTML="<option value='1'>0 Bedroom (Studio)</option>";
+    }
+  if (jenis_unit=="1")
+    {
+        document.getElementById("tampil").innerHTML="<option value='1'>1 Bedroom</option>";
+    }
+  else if (jenis_unit=="0")
+    {
+        document.getElementById("tampil").innerHTML="<option value='1'>1 Bedroom</option><option value='2'>2 Bedroom</option><option value='3'>3 Bedroom</option><option value='4'>4 Bedroom</option><option value='5'>5 Bedroom</option>";
+    }
+}
+</script>
+</head>
+
+<body>
+
+<!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="/">Cari Harga Apartemen</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/products">Products</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('../static/img/contact-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>Cek Harga</h1>
+            <span class="subheading">Have questions? I have answers.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+<!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <p>Masukkan Tipe Apartemen Idealmu dan Temukan Harganya</p>
+        <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
+        <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
+        <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
+        
+ <div class="login">
+
+<!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="POST"id="form1" name="form1">
+<div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label for="Kecamatan">Kecamatan</label>
+			 <p>Pilih Nama Kecamatan :</p>
+              <select id="Kecamatan" class="form-control" placeholder="Nama Kecamatan" name="Kecamatan" required data-validation-required-message="Mohon pilih nama kecamatan">
+			 <option>-Nama Kecamatan-</option>
+				<optgroup label="Jakarta Barat">
+			 <option value='2'>Cengkareng</option>
+			 <option value='4'>Grogol</option>
+			 <option value='7'>Kebon Jeruk</option>
+			 <option value='10'>Kembangan</option>
+			 <option value='20'>Petamburan</option>
+			 <option value='27'>Slipi</option>
+			 <option value='28'>Tambora</option>
+				<optgroup label="Jakarta Pusat">
+			 <option value='1'>Cempaka Putih</option>
+			 <option value='8'>Kebon Melati</option>
+			 <option value='12'>Menteng</option>
+			 <option value='23'>Sawah Besar</option>
+			 <option value='25'>Senen</option>
+			 <option value='29'>Tanah Abang</option>
+				<optgroup label="Jakarta Selatan">
+			 <option value='6'>Kebayoran Lama</option>
+			 <option value='13'>Menteng Atas</option>
+			 <option value='14'>Menteng Dalam</option>
+			 <option value='16'>Pancoran</option>
+			 <option value='17'>Pasar Minggu</option>
+			 <option value='19'>Pesanggrahan</option>
+			 <option value='24'>Semanggi</option>
+			 <option value='26'>Setiabudi</option>
+			 <option value='31'>Tebet</option>
+				<optgroup label="Jakarta Timur">
+			 <option value='0'>Cakung</option>
+			 <option value='3'>Duren Sawit</option>
+			 <option value='5'>Jatinegara</option>
+			 <option value='11'>Kramatjati</option>
+			 <option value='22'>Pulo Gadung</option>
+				<optgroup label="Jakarta Utara">
+			 <option value='9'>Kelapa Gading</option>
+			 <option value='15'>Pademangan</option>
+			 <option value='18'>Penjaringan</option>
+			 <option value='21'>Pluit</option>
+			 <option value='30'>Tanjung Priok</option>
+			 </select>
+			  <p class="help-block text-danger"></p>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Jenis Unit</label>
+			  <p>Pilih Jenis Unit dan Jumlah Bed Room :</p>
+              <select onsubmit="return false" type="number" class="form-control" placeholder="Jenis Unit" name="Unit" onchange="tampilkan()" required data-validation-required-message="Mohon pilih jenis unit">
+             <option>-Jenis Unit-</option>
+			 <option value='2'>Studio Unit (0 Bedroom)</option>
+			 <option value='1'>Shared Unit (1 Bedroom)</option>
+			 <option value='0'>Bed Room Unit</option>
+			 </select>
+			  <p class="help-block text-danger"></p>
+            </div>
+          </div>
+ 
+         <div class="control-group">
+         <div class="form-group floating-label-form-group controls">
+		<label>Jumlah Bed Room</label>
+		<select select type="number" class="form-control" placeholder="Jumlah BR" id="tampil" name="BR" select type="number" class="form-control" placeholder="Jumlah Bed Room">
+		<option>-Jumlah Bed Room-</option>
+		</select> 
+		  </div>
+          </div>
+		  
+		  <div class="control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label>Luas Unit</label>
+			  <p>Tentukan Luas Unit :</p>
+              luas unit&emsp;&emsp;&emsp;<input type="number" data-type="range" name="Luas" id="points" value="18" min="18" max="188" class="ui-shadow-inset ui-body-inherit ui-corner-all ui-slider-input" placeholder="Luas Unit" required data-validation-required-message="Please enter your phone number."> m<sup>2</sup>
+			  <p class="help-block text-danger"></p>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Kelengkapan Fasilitas Unit</label>
+			  <p>Pilih Kelengkapan Fasilitas Unit :</p>
+              <select id="Fasilitas" class="form-control" placeholder="Kelengkapan Fasilitas Unit" name="Fasilitas" required data-validation-required-message="Mohon pilih fasilitas unit">
+             <option>-Fasilitas Unit-</option>
+			 <option value='0'>Furnished</option>
+			 <option value='2'>Semi Furnished</option>
+			 <option value='1'>Not Furnished</option>
+			 </select>
+			  <p class="help-block text-danger"></p>
+            </div>
+          </div>
+		  
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Lantai Unit</label>
+			  <p>Pilih Lantai Unit :</p>
+              <select id="Lantai" class="form-control" placeholder="Kelengkapan Fasilitas Unit" name="Lantai" required data-validation-required-message="Mohon pilih lantai unit">
+             <option>-Lantai Unit-</option>
+			 <option value='1'>Low Floor</option>
+			 <option value='2'>Middle Floor</option>
+			 <option value='0'>High Floor</option>
+			 </select>
+			  <p class="help-block text-danger"></p>
+            </div>
+          </div>
+		  
+          <br>
+          <div id="success"></div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary" id="submit">Prediksi Harga</button>
+          </div>
+        </form>
+	 </div>
+  </div>
+   </div>
+<br>
+   <br>
+   {{ prediction_text }}
+</div>
+
+  <hr>
+
+</body>
+</html>
